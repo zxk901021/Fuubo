@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="material_color">#ff0babf3</color>
+    <color name="material_color_primary">#ff2f66f3</color>
+    <color name="material_color_two">#fff3923d</color>
+    <color name="white">#fffbffff</color>
+</resources>
