@@ -6,6 +6,7 @@ import org.apache.http.util.EncodingUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -34,12 +35,31 @@ public class FileUtil {
 
     public static String getSDPath(){
         File dir = null;
-        boolean hasSDCard = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
-        if (hasSDCard) {
+        if (hasSDCard()) {
             dir = Environment.getExternalStorageDirectory();
 
         }
         return dir.toString();
+    }
+
+    public static boolean hasSDCard() {
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+    }
+
+    public static void writeDataToSD (String fileName, String fileContent) {
+        File file = new File(getSDPath(), fileName);
+        if (hasSDCard()) {
+            try {
+                FileOutputStream fos = new FileOutputStream(file);
+                byte[] os = fileContent.getBytes();
+                fos.write(os);
+                fos.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
