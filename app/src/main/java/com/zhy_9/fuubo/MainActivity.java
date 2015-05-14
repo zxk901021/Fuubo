@@ -5,9 +5,17 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.zhy_9.fuubo.util.FileUtil;
+
+import java.io.File;
+import java.io.IOException;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -19,6 +27,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -30,13 +39,14 @@ public class MainActivity extends ActionBarActivity {
 
         refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresh_layout);
 //        refreshLayout.setColorSchemeColors(android.R.color.holo_blue_dark, android.R.color.holo_blue_light,
-//                android.R.color.holo_green_light, android.R.color.holo_orange_light);//4.4…œ¥À∑Ω∑®≤ª∆◊˜”√
+//                android.R.color.holo_green_light, android.R.color.holo_orange_light);//4.4Á≥ªÁªü‰∏äÊ≠§ÊñπÊ≥ï‰∏çËµ∑‰ΩúÁî®
         refreshLayout.setColorScheme(android.R.color.holo_blue_dark, android.R.color.holo_blue_light,
                 android.R.color.holo_green_light, android.R.color.holo_orange_light);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 refreshLayout.setRefreshing(true);
+                showToast();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -47,11 +57,34 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        String path = FileUtil.getSDPath() + File.separator + "cache";
+//        String fileContent = "Hello world!";
+        String fileContent = "‰ªäÂ§©Â§©Ê∞îÂæàÂ•ΩÔºÅ";
+        try {
+            FileUtil.writeFileOnSDCard(path, fileContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Log.e("path", path);
+        try {
+            String readFileContent = FileUtil.readFileFromSDCard(path);
+            Log.e("readContent", readFileContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void showToast() {
         LayoutInflater inflater = getLayoutInflater();
         View toastLayout = inflater.inflate(R.layout.toast_layout, null);
         TextView toastText = (TextView) toastLayout.findViewById(R.id.toast_content);
-        toastText.setText("√ª”––¬œ˚œ¢¡À");
-
+        toastText.setText("ÂºπÂá∫Ê∂àÊÅØÔºÅ");
+        Toast toast = new Toast(this);
+        toast.setView(toastLayout);
+        toast.setGravity(Gravity.RELATIVE_HORIZONTAL_GRAVITY_MASK, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.show();
     }
 
 

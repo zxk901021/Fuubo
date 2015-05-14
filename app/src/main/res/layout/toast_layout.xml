@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/toast_content"
         android:background="@drawable/abc_popup_background_mtrl_mult"
-        android:textColor="@color/material_color"/>
+        android:textColor="@color/material_color"
+        android:text="dasdasdasdadasdadasd" />
 
 </LinearLayout>
