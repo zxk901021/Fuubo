@@ -4,4 +4,6 @@
     <color name="material_color_primary">#ff2f66f3</color>
     <color name="material_color_two">#fff3923d</color>
     <color name="white">#fffbffff</color>
+    <color name="material_color_purple">#ffc81ef3</color>
+    <color name="material_color_pink">#fff36be3</color>
 </resources>

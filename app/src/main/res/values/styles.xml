@@ -11,4 +11,14 @@
 
     </style>
 
+    <style name="NewAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+
+        <item name="colorPrimary">@color/material_color_purple</item>
+        <item name="colorPrimaryDark">@color/material_color_pink</item>
+        <item name="colorAccent">@color/material_color_two</item>
+        <item name="android:textColorPrimary">@color/white</item>
+
+    </style>
+
 </resources>
