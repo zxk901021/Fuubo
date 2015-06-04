@@ -1,18 +1,45 @@
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    android:layout_height="match_parent">
+
     <include
         android:id="@+id/my_toolbar"
         layout="@layout/toolbar" />
 
 
-<android.support.v4.widget.SwipeRefreshLayout
-    android:id="@+id/refresh_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/my_toolbar">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/click"
+        android:text="click"
+        android:textColor="#000000"
+        android:layout_below="@+id/my_toolbar"
+        android:background="@color/material_color"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:text="Hello World !"
+        android:layout_below="@+id/click"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textColor="#000000"/>
+    <com.zhy_9.fuubo.MyAnimView
+        android:id="@+id/anim_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"/>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text"
+        android:visibility="gone">
 
 
 
@@ -28,8 +55,6 @@
     </android.support.v4.widget.SwipeRefreshLayout>
 
 
-
-
-    </RelativeLayout>
+</RelativeLayout>
 
 
