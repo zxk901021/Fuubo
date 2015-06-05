@@ -39,6 +39,7 @@ public class MyAnimView extends View {
         }
     }
 
+
     public String getColor() {
         return color;
     }
