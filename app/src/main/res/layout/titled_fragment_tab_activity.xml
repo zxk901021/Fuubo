@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <com.zhy_9.stoexpress.view.ui.TitleView
+        android:id="@+id/titlebar"
+        android:layout_width="fill_parent"
+        android:layout_height="42dp" />
+
+    <com.zhy_9.stoexpress.view.TitleIndicator
+        android:id="@+id/pagerindicator"
+        android:layout_width="fill_parent"
+        android:layout_height="34dp"
+        android:background="@color/white"
+        app:footerColor="@color/tab_indicator_text_selected"
+        app:footerLineHeight="2dp"
+        app:footerTriangleHeight="3.0dp"
+        app:textColor="@color/tab_indicator_text"
+        app:textSizeNormal="@dimen/common_text_size_middle_2"
+        app:textSizeSelected="@dimen/common_text_size_middle_2" />
+
+    <!-- Don't set background for ViewPager. It doesn't work because of page margin -->
+
+    <com.zhy_9.stoexpress.view.ViewPagerCompat
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:duplicateParentState="true"
+        android:background="@color/white" />
+
+</LinearLayout>
