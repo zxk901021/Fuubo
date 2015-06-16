@@ -1,11 +1,6 @@
 package com.zhy_9.fuubo.com.zhy_9.fuubo.ui;
 
 
-import java.util.List;
-
-import com.zhy_9.stoexpress.IndicatorFragmentActivity.TabInfo;
-import com.zhy_9.stoexpress.R;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -22,6 +17,10 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.zhy_9.fuubo.R;
+
+import java.util.List;
 
 
 /**
@@ -44,7 +43,7 @@ public class TitleIndicator extends LinearLayout implements View.OnClickListener
     private int mCurrentScroll = 0;
 
     //选项卡列表
-    private List<TabInfo> mTabs;
+    private List<IndicatorFragmentActivity.TabInfo> mTabs;
 
     //选项卡所依赖的viewpager
     private ViewPager mViewPager;
@@ -220,7 +219,7 @@ public class TitleIndicator extends LinearLayout implements View.OnClickListener
     }
 
     //初始化选项卡
-    public void init(int startPos, List<TabInfo> tabs, ViewPager mViewPager) {
+    public void init(int startPos, List<IndicatorFragmentActivity.TabInfo> tabs, ViewPager mViewPager) {
         removeAllViews();
         this.mViewPager = mViewPager;
         this.mTabs = tabs;

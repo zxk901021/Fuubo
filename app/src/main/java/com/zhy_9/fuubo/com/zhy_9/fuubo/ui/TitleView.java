@@ -1,6 +1,5 @@
 package com.zhy_9.fuubo.com.zhy_9.fuubo.ui;
 
-import com.zhy_9.stoexpress.R;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.zhy_9.fuubo.R;
 
 public class TitleView extends FrameLayout{
 	
